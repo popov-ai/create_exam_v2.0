@@ -2,17 +2,13 @@ import streamlit as st
 from htmlTemplates import css, bot_template, user_template
 from llama_index.core import SimpleDirectoryReader, VectorStoreIndex
 from llama_index.core.node_parser import SentenceSplitter
-#from llama_index.embeddings.openai import OpenAIEmbedding
-#from llama_index.llms import openai
 from llama_index.core import StorageContext, load_index_from_storage
-#from langchain_community.chat_message_histories import ChatMessageHistory
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.core import Settings
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.groq import Groq
 from dotenv import load_dotenv
 from streamlit_extras.buy_me_a_coffee import button
-#from get_questions import get_mcq, get_owq
 from txt_to_template import generate_output
 import os
 
