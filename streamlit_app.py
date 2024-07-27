@@ -5,7 +5,7 @@ from llama_index.core.node_parser import SentenceSplitter
 #from llama_index.embeddings.openai import OpenAIEmbedding
 #from llama_index.llms import openai
 from llama_index.core import StorageContext, load_index_from_storage
-from langchain_community.chat_message_histories import ChatMessageHistory
+#from langchain_community.chat_message_histories import ChatMessageHistory
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.core import Settings
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
