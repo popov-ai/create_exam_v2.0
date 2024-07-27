@@ -1,5 +1,6 @@
 llama-index
 llama-index-embeddings-huggingface
+llama-index-llms-groq
 streamlit==1.34.0
 streamlit_extras
 python-dotenv
