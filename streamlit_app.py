@@ -17,8 +17,7 @@ from txt_to_template import generate_output
 import os
 
 load_dotenv() 
-#os.environ["OPENAI_API_KEY"] = os.getenv('openai_key')
-groq_api = os.getenv('GROQ_API_KEY')
+groq_api = st.secrets['GROQ_API_KEY']
 
 llm = Groq(model="llama3-70b-8192", api_key=groq_api)
 embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2", trust_remote_code=True) # "BAAI/bge-small-en-v1.5", "sentence-transformers/all-MiniLM-L6-v2", nomic-ai/nomic-embed-text-v1.5
