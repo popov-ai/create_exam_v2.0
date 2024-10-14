@@ -15,7 +15,7 @@ import os
 load_dotenv() 
 groq_api = st.secrets['GROQ_API_KEY']
 
-llm = Groq(model="llama3-70b-8192", api_key=groq_api)
+llm = Groq(model="llama3-8b-8192", api_key=groq_api) # llama-3.1-70b-versatile
 embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2", trust_remote_code=True) # "BAAI/bge-small-en-v1.5", "sentence-transformers/all-MiniLM-L6-v2", nomic-ai/nomic-embed-text-v1.5
 
 Settings.embed_model = embed_model
