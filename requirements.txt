@@ -1,7 +1,10 @@
 llama-index
 llama-index-embeddings-huggingface
+llama_index.core.indices.document_summary
+pymupdf
 llama-index-llms-groq
 streamlit==1.34.0
 streamlit_extras
 python-dotenv
 python-docx
+pathlib
