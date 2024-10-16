@@ -1,4 +1,5 @@
 from docx import Document
+from docx.shared import Pt
 import re
 
 def generate_output():
@@ -7,7 +8,8 @@ def generate_output():
             'bold': run.bold,
             'italic': run.italic,
             'font_name':run.font.name,
-            'color':run.font.color.rgb
+            'color':run.font.color.rgb,
+            'font_size': run.font.size.pt if run.font.size else None
         }
         return style
 
@@ -15,7 +17,7 @@ def generate_output():
         # Load the template document
         doc = Document(template_path)
         style = doc.styles['Normal']
-        style.font.name = 'Tahoma'
+        style.font.name = 'Times New Roman'
 
         # Read multiple choice questions from file
         with open(mcq_file, 'r') as mcq_file:
@@ -66,6 +68,7 @@ def generate_output():
                     run.italic = style['italic']
                     run.font.name = style['font_name']
                     run.font.color.rgb = style['color']
+                    run.font.size = Pt(12)
 
                 if placeholder_answer_a in p.text:
                     style = extract_style(p.runs[0])
@@ -75,6 +78,7 @@ def generate_output():
                     run.italic = style['italic']
                     run.font.name = style['font_name']
                     run.font.color.rgb = style['color']
+                    run.font.size = Pt(12)
                 
                 if placeholder_answer_b in p.text:
                     style = extract_style(p.runs[0])
@@ -84,6 +88,7 @@ def generate_output():
                     run.italic = style['italic']
                     run.font.name = style['font_name']
                     run.font.color.rgb = style['color']
+                    run.font.size = Pt(12)
 
                 if placeholder_answer_c in p.text:
                     style = extract_style(p.runs[0])
@@ -93,6 +98,7 @@ def generate_output():
                     run.italic = style['italic']
                     run.font.name = style['font_name']
                     run.font.color.rgb = style['color']
+                    run.font.size = Pt(12)
 
                 if placeholder_answer_d in p.text:
                     style = extract_style(p.runs[0])
@@ -102,6 +108,7 @@ def generate_output():
                     run.italic = style['italic']
                     run.font.name = style['font_name']
                     run.font.color.rgb = style['color']
+                    run.font.size = Pt(12)
 
                 if placeholder_correct in p.text:
                     style = extract_style(p.runs[0])
@@ -111,6 +118,7 @@ def generate_output():
                     run.italic = style['italic']
                     run.font.name = style['font_name']
                     run.font.color.rgb = style['color']
+                    run.font.size = Pt(12)
                 
         print("MCQ part completed...")
 
@@ -138,11 +146,13 @@ def generate_output():
                 if placeholder_question in p.text:                
                     style = extract_style(p.runs[0])
                     p.text = ''
-                    run = p.add_run(f'Q{i}. {question} (5 marks)')
+                    run = p.add_run(f'Q{i}. {question} (10 marks)')
                     run.bold = style['bold']
                     run.italic = style['italic']
                     run.font.name = style['font_name']
                     run.font.color.rgb = style['color']
+                    run.font.size = Pt(12)
+
                     
                 for table in doc.tables:
                     for row in table.rows:
@@ -156,6 +166,8 @@ def generate_output():
                                     run.italic = style['italic']
                                     run.font.name = style['font_name']
                                     run.font.color.rgb = style['color']
+                                    run.font.size = Pt(12)
+                                    
         print("OWQ part completed...")
 
         return doc
