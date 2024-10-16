@@ -14,7 +14,7 @@ from llama_index.core.query_engine import RetrieverQueryEngine
 from llama_index.core.indices.document_summary import DocumentSummaryIndexEmbeddingRetriever
 from pathlib import Path
 
-groq_api = st.secrets['groq_api']
+groq_api = st.secrets['GROQ_API_KEY']
 
 llm = Groq(model="gemma2-9b-it", api_key=groq_api) # llama-3.1-70b-versatile, "llama-3.1-8b-instant", llama3-8b-8192
 embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/all-mpnet-base-v2", trust_remote_code=True) # "BAAI/bge-small-en-v1.5", "sentence-transformers/all-mpnet-base-v2", "sentence-transformers/all-MiniLM-L6-v2", nomic-ai/nomic-embed-text-v1.5
