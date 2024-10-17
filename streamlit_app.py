@@ -97,6 +97,8 @@ def main():
                 os.mkdir('data')
             else:
                 os.mkdir('data')
+            if os.path.exists('index'):
+                shutil.rmtree('index')
             with st.spinner("Processing"):
                 for doc in docs:
                     save_uploaded_files(doc)
@@ -120,7 +122,7 @@ def main():
                 
 
                 data_path = Path('./data')
-                with open(data_path / 'all_text.txt', 'w') as f:
+                with open(data_path / 'all_text.txt', 'w', encoding='utf8') as f:
                     f.write(all_text)
 
                 # load txt file with SimpleDirectoryReader
