@@ -13,6 +13,7 @@ import os
 from llama_index.core.query_engine import RetrieverQueryEngine
 from llama_index.core.indices.document_summary import DocumentSummaryIndexEmbeddingRetriever
 from pathlib import Path
+import shutil
 
 groq_api = st.secrets['GROQ_API_KEY']
 
@@ -91,7 +92,9 @@ def main():
         docs = st.file_uploader("Upload PDFs and click 'Process'",accept_multiple_files=True)
         st.session_state.uploaded_files = docs
         if st.button("Process", on_click=show_chat):
-            os.mkdir('data')
+            if os.path.exists('data'):
+                shutil.rmtree('data')
+                os.mkdir('data')
             with st.spinner("Processing"):
                 for doc in docs:
                     save_uploaded_files(doc)
@@ -211,7 +214,6 @@ def main():
                     pass
                 with open('chat_owq.txt', 'w') as cowq:
                     pass
-                import shutil
                 if os.path.exists('data'):
                     shutil.rmtree('data')
 
