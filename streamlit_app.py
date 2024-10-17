@@ -95,6 +95,8 @@ def main():
             if os.path.exists('data'):
                 shutil.rmtree('data')
                 os.mkdir('data')
+            else:
+                os.mkdir('data')
             with st.spinner("Processing"):
                 for doc in docs:
                     save_uploaded_files(doc)
