@@ -1,3 +1,4 @@
+torch
 llama-index
 llama-index-embeddings-huggingface
 pymupdf
